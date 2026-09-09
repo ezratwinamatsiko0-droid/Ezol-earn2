@@ -1,96 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ezol Earn2 - Online Job App</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
-body{background:#0f3d2e;color:#fff;min-height:100vh}
-.top{background:linear-gradient(90deg,#1a4d3a,#2a7a5d);margin:12px;border-radius:14px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center}
-.top small{color:#ffeb3b;font-size:12px;line-height:1.3}
-.logo{text-align:center;margin:16px 0 10px}
-.circle{width:118px;height:118px;margin:0 auto;border-radius:50%;background:#fff;border:4px solid #ffca2a;box-shadow:0 0 0 4px #1e6d55, 0 8px 20px rgba(0,0,0,.3);overflow:hidden;display:flex;align-items:center;justify-content:center}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0f3d2e;color:#fff}
+.header{background:linear-gradient(90deg,#1a4d3a,#2a7a5d);margin:10px;border-radius:12px;padding:10px 14px;display:flex;justify-content:space-between;font-size:13px}
+.logo{text-align:center;margin:14px 0}
+.circle{width:110px;height:110px;margin:0 auto;border-radius:50%;border:4px solid #ffca2a;box-shadow:0 0 0 4px #1e6d55;overflow:hidden;background:#fff}
 .circle img{width:100%;height:100%;object-fit:cover}
-.tabs{display:flex;gap:10px;padding:0 16px;margin-top:14px}
-.tab{flex:1;padding:13px;border-radius:25px;border:none;font-weight:800;font-size:14px;cursor:pointer}
-.tab1{background:#184e3c;color:#fff;border:1px solid #3a9a7e}
-.tab2{background:linear-gradient(#ffda6a,#ff9f1a);color:#3a2000}
-.card{background:#fffff8;color:#222;margin:16px;border-radius:18px;padding:16px;box-shadow:0 4px 12px rgba(0,0,0,.15)}
-.input{display:flex;gap:8px;align-items:center;background:#f3f3ef;border:1px solid #e5e5e0;border-radius:12px;padding:12px;margin-bottom:11px}
-.input input{border:none;background:none;outline:none;flex:1;font-size:14px}
-.btn-main{width:100%;padding:14px;border:none;border-radius:12px;background:linear-gradient(#2ecc71,#1e8a4f);color:#fff;font-weight:800;font-size:16px;cursor:pointer;margin-top:6px}
-.pay{display:none;background:#fff;color:#111;margin:16px;border-radius:18px;padding:18px}
-.badge{background:#e8f8ee;border:1px dashed #2a7d5f;padding:12px;border-radius:12px;font-size:14px;line-height:1.5;margin:12px 0}
-.pay button{width:100%;padding:14px;border-radius:12px;border:none;font-weight:800;font-size:16px;cursor:pointer}
-.btn-pay{background:linear-gradient(#ffda6a,#ff9f1a);color:#3a2000}
-.btn-copy{background:#eee;color:#111;margin-top:8px}
-.small{font-size:11px;color:#777;text-align:center;margin-top:8px}
+.card{background:#fff;color:#222;margin:12px;border-radius:16px;padding:16px}
+.input{display:flex;gap:8px;background:#f3f3ef;border-radius:10px;padding:11px;margin:8px 0}
+.input input{border:none;background:none;flex:1;outline:none}
+.btn{width:100%;padding:13px;border:none;border-radius:11px;font-weight:800;cursor:pointer}
+.btn-green{background:linear-gradient(#2ecc71,#1e8a4f);color:#fff}
+.btn-gold{background:linear-gradient(#ffda6a,#ff9f1a);color:#3a2000}
+.badge{background:#e8f8ee;border:1px dashed #2a7d5f;padding:12px;border-radius:10px;font-size:14px;line-height:1.6}
+.task{display:flex;justify-content:space-between;background:#f7f7f5;padding:12px;border-radius:10px;margin:8px 0;border:1px solid #eee}
+.lock{color:#ff6a00;font-weight:700}
+.nav{display:flex;gap:8px;margin:12px}
+.nav button{flex:1;padding:11px;border-radius:20px;border:none;font-weight:700}
 </style>
 </head>
 <body>
-<div class="top"><small>📱 Download APP for better experience.<br>Experience & receive <b>500,000 UGX</b></small><span style="background:#3dd68c;padding:8px;border-radius:50%">📲</span></div>
+<div class="header"><span>📱 Download APP - Get 500,000 UGX Bonus</span><span>📲</span></div>
 
 <div class="logo">
-<div class="circle"><img src="logo.jpg" onerror="this.src='https://i.imgur.com/3GvwNBf.png'" alt="Ezol CEO"></div>
-<h3 style="margin-top:10px;letter-spacing:.5px">Ezol Earn2 - Online Job</h3>
-<p style="font-size:12px;color:#9be0c5;margin-top:3px">CEO • Kampala 2024 • Est. 2024</p>
+<div class="circle"><img src="logo.jpg" onerror="this.src='https://i.imgur.com/3GvwNBf.png'" alt="CEO"></div>
+<h3 style="margin-top:8px">Ezol Earn2 - Online Job</h3>
+<small style="color:#9be0c5">CEO • Kampala 2024 • Est. 2024</small>
 </div>
 
-<div id="auth">
-<div class="tabs"><button class="tab tab1">Sign in</button><button class="tab tab2" onclick="doRegister()">Register</button></div>
+<!-- AUTH -->
+<div id="auth" class="card">
+<h3 style="text-align:center;margin-bottom:10px">Welcome Back</h3>
+<div class="input"><span>🇺🇬 +256</span><input id="phone" placeholder="Phone number"></div>
+<div class="input"><span>🔒</span><input id="p1" type="password" placeholder="Password"></div>
+<div class="input"><span>🔒</span><input id="p2" type="password" placeholder="Confirm password"></div>
+<button class="btn btn-green" onclick="enterApp()">Enter App →</button>
+<p style="font-size:11px;text-align:center;color:#777;margin-top:8px">12,000+ trusted users in Uganda</p>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dash" style="display:none">
+<div class="nav">
+<button style="background:#184e3c;color:#fff" onclick="show('home')">Home</button>
+<button style="background:#ffda6a" onclick="show('pay')">Activate</button>
+<button style="background:#fff;color:#222" onclick="show('profile')">Me</button>
+</div>
+
+<div id="homeSec">
 <div class="card">
-<div class="input"><span>🇺🇬 +256</span><input id="phone" placeholder="Enter phone number"></div>
-<div class="input"><span>🔒</span><input id="p1" type="password" placeholder="Enter password"></div>
-<div class="input"><span>🔒</span><input id="p2" type="password" placeholder="Re-enter password"></div>
-<button class="btn-main" onclick="doRegister()">Register Now</button>
-<p class="small">Trusted by 12,000+ users in Uganda</p>
+<p>Account: <b id="uPhone">+256...</b> <span style="background:#ffe9b5;padding:3px 8px;border-radius:10px;font-size:11px">Not Activated</span></p>
+<h1 style="margin:12px 0">UGX 0 <small style="font-size:14px;color:#777">Balance</small></h1>
+<p style="background:#fff3cd;padding:10px;border-radius:8px;font-size:13px">⚠️ Activate account with 20,000 UGX to start earning 15,000 UGX daily from tasks</p>
+<button class="btn btn-gold" style="margin-top:10px" onclick="show('pay')">Activate Now → 20,000 UGX</button>
+</div>
+
+<div class="card">
+<h4>🔥 Available Tasks (Preview)</h4>
+<div class="task"><span>📱 Follow Facebook Page</span><span class="lock">+3,000 🔒</span></div>
+<div class="task"><span>❤️ Like YouTube Video</span><span class="lock">+2,500 🔒</span></div>
+<div class="task"><span>⭐ Rate App 5 Stars</span><span class="lock">+5,000 🔒</span></div>
+<p style="font-size:11px;color:#888;text-align:center;margin-top:8px">Pay activation to unlock tasks</p>
 </div>
 </div>
 
-<div id="pay" class="pay">
+<!-- PAY -->
+<div id="paySec" style="display:none">
+<div class="card">
 <h3 style="text-align:center">Auto Pay Activation</h3>
-<p style="margin:12px 0;font-size:14px">Account: <b id="uPhone">+256...</b></p>
 <div class="badge">
 Pay To: <b>0795143386</b><br>
 Names: <b>Ezra Twinamatsiko</b><br>
-Network: MTN MoMo / Airtel Money<br>
-Amount: <b>20,000 UGX Activation</b>
+Network: MTN MoMo / Airtel<br>
+Amount: <b>20,000 UGX</b>
 </div>
 <div class="input"><span>UGX</span><input id="amt" value="20000"></div>
-<button class="btn-pay" onclick="payNow()">💳 Pay Now to 0795143386</button>
-<button class="btn-copy" onclick="navigator.clipboard.writeText('0795143386');alert('Copied 0795143386')">📋 Copy Number</button>
-<p id="msg" style="text-align:center;margin-top:12px;color:green;font-weight:700"></p>
-<p class="small">After paying, click Pay Now → proof will go to WhatsApp automatically</p>
+<button class="btn btn-gold" onclick="payNow()">💳 Pay Now to 0795143386</button>
+<button class="btn" style="background:#eee;margin-top:8px" onclick="copyNum()">📋 Copy Number</button>
+<p id="msg" style="color:green;text-align:center;margin-top:10px;font-weight:700"></p>
+<button class="btn btn-green" style="margin-top:12px" onclick="show('home')">← Back to App</button>
+</div>
+</div>
+
+<div id="profileSec" style="display:none">
+<div class="card" style="text-align:center">
+<div class="circle" style="width:80px;height:80px"><img src="logo.jpg"></div>
+<h4 style="margin-top:8px">Ezol Earn2 CEO</h4>
+<p id="pPhone" style="font-size:13px;color:#555">+256...</p>
+<p style="margin-top:10px;font-size:13px">Status: <b style="color:#ff6a00">Pending Activation</b></p>
+<button class="btn btn-gold" style="margin-top:12px" onclick="show('pay')">Activate Account</button>
+</div>
+</div>
 </div>
 
 <script>
-function doRegister(){
+let curPhone='';
+function enterApp(){
  let ph=document.getElementById('phone').value.trim();
- let a=document.getElementById('p1').value;
- let b=document.getElementById('p2').value;
- if(ph.length<9){alert('Enter valid phone number');return;}
- if(a.length<4){alert('Password too short');return;}
- if(a!==b){alert('Passwords do not match');return;}
+ let a=document.getElementById('p1').value, b=document.getElementById('p2').value;
+ if(ph.length<9){alert('Enter phone');return}
+ if(a.length<4||a!==b){alert('Passwords mismatch');return}
+ curPhone=ph;
  localStorage.setItem('ezol_phone',ph);
  document.getElementById('auth').style.display='none';
- document.getElementById('pay').style.display='block';
+ document.getElementById('dash').style.display='block';
  document.getElementById('uPhone').innerText='+256'+ph;
+ document.getElementById('pPhone').innerText='+256'+ph;
+ show('home');
 }
+function show(s){
+ document.getElementById('homeSec').style.display=s==='home'?'block':'none';
+ document.getElementById('paySec').style.display=s==='pay'?'block':'none';
+ document.getElementById('profileSec').style.display=s==='profile'?'block':'none';
+}
+function copyNum(){navigator.clipboard.writeText('0795143386');alert('Copied 0795143386')}
 function payNow(){
  let amt=document.getElementById('amt').value||'20000';
  let num='0795143386';
- let ph=localStorage.getItem('ezol_phone')||'';
  let ussd=`*165*1*1*${num}*${amt}#`;
- document.getElementById('msg').innerText='Opening MoMo dialer... '+ussd;
- // Open USSD
+ document.getElementById('msg').innerText='Opening MTN MoMo: '+ussd;
  window.location.href='tel:'+encodeURIComponent(ussd);
- // Open WhatsApp proof after 1.2s
  setTimeout(()=>{
-   let text=`Ezol Earn2 Payment%0AAmount: ${amt} UGX%0AFrom: +256${ph}%0ATo: ${num}%0APlease confirm receipt`;
-   window.open('https://wa.me/256795143386?text='+text,'_blank');
+  let txt=`Ezol Earn2 Payment%0AFrom:+256${curPhone}%0ATo:${num}%0AAmt:${amt} UGX%0AConfirm please`;
+  window.open('https://wa.me/256795143386?text='+txt,'_blank');
  },1200);
 }
+if(localStorage.getItem('ezol_phone')){curPhone=localStorage.getItem('ezol_phone');document.getElementById('auth').style.display='none';document.getElementById('dash').style.display='block';document.getElementById('uPhone').innerText='+256'+curPhone;document.getElementById('pPhone').innerText='+256'+curPhone;}
 </script>
 </body>
 </html>
