@@ -1,97 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
-<title>Ezol Earn2 - Auto Pay</title>
-<meta name="theme-color" content="#16a34a">
-<link rel="manifest" href='data:application/json;base64,eyJuYW1lIjoiRXpvbCBFYXJuMiIsInNob3J0X25hbWUiOiJFem9sIEVhcm4yIiwiZGlzcGxheSI6InN0YW5kYWxvbmUifQ=='>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ezol Earn2 - Online Job App</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#eef2f0;display:flex;justify-content:center}
-.app{width:100%;max-width:400px;background:#f8faf9;min-height:100vh;position:relative;padding-bottom:95px}
-.top{background:#16a34a;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;color:#fff;position:sticky;top:0;z-index:100;border-radius:0 0 20px 20px}
-.hero{margin:14px;background:#fff;border-radius:24px;padding:20px;box-shadow:0 8px 24px rgba(0,0,0,.08);text-align:center}
-.hero-bal{font-size:34px;font-weight:900;color:#0f172a}
-.badge{margin:12px;background:linear-gradient(135deg,#128C7E,#25D366);border-radius:20px;padding:14px;color:#fff}
-.btn{width:100%;padding:12px;border:none;border-radius:14px;font-weight:800;margin-top:8px;cursor:pointer;font-size:13px}
-.btn-w{background:#fff;color:#128C7E}.btn-g{background:#16a34a;color:#fff}.btn-o{background:#f97316;color:#fff}.btn-dark{background:#0f172a;color:#fff}.btn-blue{background:#4f46e5;color:#fff}
-.card{background:#fff;margin:10px 12px;padding:14px;border-radius:18px;box-shadow:0 4px 12px rgba(0,0,0,.04)}
-.prod{display:flex;gap:12px;margin:0 12px 10px 12px;background:#fff;border-radius:18px;padding:14px;border:1px solid #eef2f0;align-items:center}
-.home-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:12px}
-.home-actions button{margin:0;padding:14px 6px;font-size:11px;border-radius:16px;display:flex;flex-direction:column;align-items:center;gap:4px}
-.home-actions button span{font-size:20px}
-.tab{display:none}.tab.active{display:block}
-.bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:400px;background:#fff;display:flex;justify-content:space-around;padding:8px 0 10px;border-radius:22px 22px 0 0;box-shadow:0 -4px 20px rgba(0,0,0,.06);z-index:999}
-.nav{flex:1;text-align:center;font-size:10px;color:#94a3b8;cursor:pointer}.nav.active{color:#16a34a;font-weight:700}.nav span{font-size:22px;display:block}
-input{width:100%;padding:12px;border:1px solid #e2e8f0;border-radius:12px;margin:6px 0}
-#loginModal,#payModal,#bizModal{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.88);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px}
-.box{background:#fff;width:100%;max-width:380px;border-radius:22px;padding:20px;max-height:90vh;overflow:auto;text-align:center}
-.float{position:fixed;right:14px;width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;z-index:998}
-.fg{bottom:140px;background:#25D366}.fh{bottom:85px;background:#0f172a}
-.live-dot{display:inline-block;width:7px;height:7px;background:#22c55e;border-radius:50%;animation:pulse 1.5s infinite}@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.warn{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:10px;border-radius:12px;font-size:11px;margin:10px 12px;line-height:1.5}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#0f3d2e; min-height:100vh; color:#fff}
+.top-banner{background:linear-gradient(90deg,#1a4a3a,#2d6a52); margin:10px; border-radius:15px; padding:10px; display:flex; align-items:center; justify-content:space-between}
+.top-banner span{font-size:12px; color:#ffeb3b; flex:1}
+.logo{width:180px; margin:10px auto; display:block; text-align:center}
+.logo-circle{width:120px; height:120px; background:linear-gradient(145deg,#0f7a4f,#f0c75e); border-radius:50%; margin:0 auto; display:flex; align-items:center; justify-content:center; font-size:50px; border:4px solid #fff}
+.btn-row{display:flex; gap:12px; padding:10px 20px}
+.btn{flex:1; padding:14px; border-radius:30px; border:none; font-weight:bold; font-size:16px; cursor:pointer}
+.btn-sign{background:linear-gradient(#2d8a6a,#1a5a4a); color:#fff}
+.btn-reg{background:linear-gradient(#ffcf5a,#ff9f1c); color:#5a3500}
+.form-card{background:#fffdf5; margin:15px; border-radius:20px; padding:20px; color:#333; position:relative}
+.input-box{background:#f5f5f0; border:1px solid #ddd; border-radius:12px; padding:12px; margin-bottom:12px; display:flex; align-items:center; gap:10px}
+.input-box input{border:none; background:transparent; outline:none; flex:1; font-size:15px}
+.pay-card{display:none; background:#fff; color:#111; margin:15px; border-radius:20px; padding:20px}
+.pay-btn{background:#ff9f1c; color:#000; width:100%; padding:15px; border-radius:12px; border:none; font-weight:bold; font-size:18px; margin-top:10px}
+.warn{background:#fff3cd; color:#856404; padding:10px; border-radius:10px; font-size:12px; margin:10px 0}
 </style>
 </head>
 <body>
-<div class="app">
-<div class="top"><b>💰 EZOL EARN2</b><div style="display:flex;gap:6px;align-items:center"><span style="font-size:10px;background:rgba(255,255,255,.2);padding:5px 10px;border-radius:20px"><span class="live-dot"></span> <span id="online">1,248</span> Online</span><button id="dlBtn" style="background:#fff;color:#16a34a;border:none;padding:6px 12px;border-radius:20px;font-size:11px;font-weight:800" onclick="downloadApp()">⬇️ App</button></div></div>
 
-<div id="homeTab" class="tab active">
-<div class="hero"><p style="font-size:10px;color:#16a34a;font-weight:800">BALANCE • Ezol Earn2</p><div class="hero-bal"><span id="balH">0</span> <span style="font-size:16px;color:#64748b">UGX</span></div><p style="font-size:11px;color:#64748b" id="uInfo">Welcome</p><div id="pendBadge" style="display:none;margin-top:10px;background:#fef3c7;color:#92400e;padding:6px 10px;border-radius:20px;font-size:11px">⏳ <span id="pendAmt">0</span> UGX pending</div></div>
-<div class="badge"><h4>👥 Official Group</h4><p style="font-size:10px;margin:4px 0">https://chat.whatsapp.com/Grz2l7HFfApERqt4Ma0NVf</p><button class="btn btn-w" onclick="openGroup()">👥 Join Group</button></div>
-<div class="home-actions">
-<button class="btn-g" onclick="switchTab('prod')"><span>⚡</span>Auto Pay</button>
-<button class="btn-o" onclick="switchTab('wallet')"><span>💸</span>Withdraw</button>
-<button class="btn-blue" onclick="openBiz()"><span>🏢</span>Profile</button>
-</div>
-<div class="warn">⚠️ Risk Warning: Returns are examples, not guaranteed. Only invest what you can afford. Withdraw stays safe until approved by CEO.</div>
-<div class="card"><h4>📊 My Packages</h4><div id="myPacks"><p style="font-size:11px;color:#999">No package yet</p></div></div>
+<div class="top-banner">
+  <span>📱 Download our APP for a better experience. Receive <b>UGX 500,000</b></span>
+  <button style="background:#3dd68c; border:none; padding:6px 10px; border-radius:50%">📲</button>
 </div>
 
-<div id="prodTab" class="tab">
-<h4 style="margin:12px">⚡ Auto Pay to 0795143386 - One Tap</h4>
-<div class="prod"><div style="font-size:28px">🌱</div><div style="flex:1"><b>STARTER - 20,000 UGX</b><div style="font-size:11px;color:#64748b">Tap Buy → MTN opens auto to 0795143386</div><button class="btn btn-g" onclick="buyPack(1,20000,500)">⚡ Auto Pay 20k</button></div></div>
-<div class="prod" style="border:2px solid #16a34a"><div style="font-size:28px">⚡</div><div style="flex:1"><b>GROWTH - 50,000 UGX 🔥</b><div style="font-size:11px;color:#64748b">One tap → MTN to 0795143386</div><button class="btn btn-g" onclick="buyPack(2,50000,1300)">🔥 Auto Pay 50k</button></div></div>
-<div class="prod"><div style="font-size:28px">💎</div><div style="flex:1"><b>PRO - 100,000 UGX</b><div style="font-size:11px;color:#64748b">One tap → MTN to 0795143386</div><button class="btn" style="background:#f59e0b;color:#fff" onclick="buyPack(3,100000,2800)">⚡ Auto Pay 100k</button></div></div>
+<div class="logo">
+  <div class="logo-circle">🌾$</div>
+  <h2 style="margin-top:10px">Ezol Earn2</h2>
 </div>
 
-<div id="walletTab" class="tab"><div class="card" style="text-align:center;background:#0f172a;color:#fff;border-radius:20px"><p style="font-size:10px;opacity:.6">BALANCE SAFE</p><h1><span id="balW">0</span> UGX</h1><p style="font-size:11px;opacity:.7">Min 5,000 • Stays until CEO pays</p><button class="btn btn-o" onclick="doWithdraw()">Request Withdraw</button></div><div class="card"><h4>⏳ My Withdraws</h4><div id="wList"></div></div></div>
-<div id="myTab" class="tab"><div class="card" style="background:linear-gradient(135deg,#0f172a,#16a34a);color:#fff;text-align:center;border-radius:20px"><h2 id="myName"></h2><p id="myPhone"></p><p><span id="balM">0</span> UGX</p></div><div class="badge"><button class="btn btn-w" onclick="openGroup()">👥 Group</button><button class="btn btn-dark" onclick="openCS()">🎧 CS 0762950427</button><button class="btn btn-blue" onclick="openBiz()">🏢 Profile</button><button class="btn btn-dark" onclick="downloadApp()">⬇️ Download App</button></div><div class="card"><button class="btn btn-dark" onclick="logout()">Logout</button></div></div>
-
-<div class="float fg" onclick="openGroup()">👥</div><div class="float fh" onclick="openCS()">🎧</div>
-<div class="bottom"><div class="nav active" onclick="switchTab('home')"><span>🏠</span>Home</div><div class="nav" onclick="switchTab('prod')"><span>📦</span>Packages</div><div class="nav" onclick="switchTab('wallet')"><span>💳</span>Wallet</div><div class="nav" onclick="switchTab('my')"><span>👤</span>My</div></div>
-
-<div id="loginModal"><div class="box"><h2 style="color:#16a34a">💰 Ezol Earn2</h2><p style="font-size:11px">Auto Pay to 0795143386</p><input id="rName" placeholder="Names"><input id="rPhone" placeholder="Phone"><input id="rPass" type="password" placeholder="Password"><button class="btn btn-g" onclick="register()">Create + 500 Bonus</button><p style="margin-top:8px"><a href="#" onclick="login();return false">Login</a></p></div></div>
-<div id="payModal" style="display:none"><div class="box"><h3>⚡ Auto Pay Package <span id="payL">1</span></h3><p><b id="payA">20000</b> UGX → <b style="color:#16a34a">0795143386</b></p><p style="font-size:11px;color:#16a34a">✓ Dialer opened auto</p><button class="btn" style="background:#ffcc00;color:#000" onclick="triggerPay()">📲 Open MTN Again *165*</button><input id="payTx" placeholder="Enter MoMo TxID after paying"><input id="payPh" placeholder="Your MoMo number"><button class="btn btn-g" onclick="confirmPay()">Submit TxID for Approval</button><button class="btn" style="background:#e5e7eb" onclick="closePay()">Cancel</button></div></div>
-<div id="bizModal" style="display:none"><div class="box" style="text-align:left"><h3>🏢 Ezol Earn2</h3><p style="font-size:12px;margin-top:8px;line-height:1.6">Name: Ezol Earn2<br>Pay Auto: 0795143386<br>CS: 0762950427<br>Group: https://chat.whatsapp.com/Grz2l7HFfApERqt4Ma0NVf<br><br>Auto Pay: Tap Buy → MTN dialer opens with number + amount → Enter PIN → Submit TxID → CEO approves</p><button class="btn btn-dark" onclick="document.getElementById('bizModal').style.display='none'">Close</button></div></div>
+<div id="authSection">
+  <div class="btn-row">
+    <button class="btn btn-sign" onclick="showLogin()">Sign in</button>
+    <button class="btn btn-reg" onclick="doRegister()">Register</button>
+  </div>
+  <div class="form-card">
+    <div class="input-box"><span>🇺🇬 +256</span><input id="phone" placeholder="Enter your phone number"></div>
+    <div class="input-box"><span>🔒</span><input id="pass1" type="password" placeholder="Enter password"></div>
+    <div class="input-box"><span>🔒</span><input id="pass2" type="password" placeholder="Re-enter new password"></div>
+    <div class="warn">⚠️ Risk Warning: Only use real Mobile Money Pay. Save your password safely. Support: 0795143386</div>
+  </div>
 </div>
+
+<div id="paySection" class="pay-card">
+  <h3 style="text-align:center">💳 Auto Pay Activation</h3>
+  <p style="margin:10px 0; font-size:14px">Welcome <b id="userPhone"></b></p>
+  <p>Package: <b>STARTER - 20,000 UGX</b> | <b>PRO - 100,000 UGX</b></p>
+  <div style="background:#f0fff0; padding:12px; border-radius:10px; margin:12px 0; border:1px dashed #2d8a6a">
+    Pay To: <b>0795143386</b> (Ezra Twinamatsiko)<br>
+    Method: MTN MoMo / Airtel Money
+  </div>
+  <label>Enter Amount:</label>
+  <div class="input-box"><span>UGX</span><input id="amount" value="20000"></div>
+  <button class="pay-btn" onclick="autoPay()">Pay Now to 0795143386</button>
+  <button onclick="copyNumber()" style="width:100%; margin-top:8px; padding:10px; border-radius:10px; border:1px solid #ccc">Copy Number</button>
+  <p id="status" style="margin-top:12px; text-align:center; font-weight:bold; color:green"></p>
+</div>
+
 <script>
-const GROUP="https://chat.whatsapp.com/Grz2l7HFfApERqt4Ma0NVf";
-const CS="0762950427";
-const PAY="0795143386";
-if('serviceWorker' in navigator){navigator.serviceWorker.register(URL.createObjectURL(new Blob([`self.addEventListener('fetch',e=>e.respondWith(fetch(e.request)))`],{type:'text/javascript'})));}
-let deferredPrompt=null;window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;document.getElementById('dlBtn').innerText='📲 Install';});
-window.downloadApp=async()=>{if(deferredPrompt){deferredPrompt.prompt();let r=await deferredPrompt.userChoice;if(r.outcome==='accepted')alert("✅ Ezol Earn2 installed!");}else alert("Browser 3 dots → Install App");};
-let user=JSON.parse(localStorage.getItem('earn2_user')||'null');let bal=parseInt(localStorage.getItem('earn2_balance')||'0')||0;let curPack={level:1,amount:20000,daily:500};
-window.switchTab=function(t){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.getElementById(t+'Tab').classList.add('active');document.querySelectorAll('.nav').forEach((x,i)=>{x.classList.remove('active');if((t==='home'&&i===0)||(t==='prod'&&i===1)||(t==='wallet'&&i===2)||(t==='my'&&i===3))x.classList.add('active');});if(t==='wallet')renderW();if(t==='home')renderPacks();}
-function sync(){let b=bal.toLocaleString();['balH','balW','balM'].forEach(id=>{let e=document.getElementById(id);if(e)e.innerText=b;});let pend=JSON.parse(localStorage.getItem('earn2_withdraws')||'[]').filter(x=>x.phone===user?.phone&&x.status==='pending');let badge=document.getElementById('pendBadge');if(pend.length>0){badge.style.display='block';document.getElementById('pendAmt').innerText=pend.reduce((s,x)=>s+x.amount,0).toLocaleString();}else if(badge)badge.style.display='none';}
-function check(){if(!user){document.getElementById('loginModal').style.display='flex';}else{document.getElementById('loginModal').style.display='none';document.getElementById('uInfo').innerText=user.name+' • '+user.phone;document.getElementById('myName').innerText=user.name;document.getElementById('myPhone').innerText=user.phone;sync();renderPacks();}}check();
-window.register=function(){let n=document.getElementById('rName').value.trim(),p=document.getElementById('rPhone').value.trim(),pa=document.getElementById('rPass').value.trim();if(n.length<3||p.length<10||pa.length<4){alert("Fill");return;}user={name:n,phone:p,password:pa};localStorage.setItem('earn2_user',JSON.stringify(user));localStorage.setItem('earn2_balance','500');bal=500;let all=JSON.parse(localStorage.getItem('earn2_all')||'[]');all.push(user);localStorage.setItem('earn2_all',JSON.stringify(all));document.getElementById('loginModal').style.display='none';check();setTimeout(()=>window.open(GROUP,"_blank"),800);}
-window.login=function(){let ph=prompt("Phone:"),pa=prompt("Password:");let all=JSON.parse(localStorage.getItem('earn2_all')||'[]');let f=all.find(x=>x.phone==ph&&x.password==pa);if(f||ph===PAY){user=f||{name:"CEO Ezra",phone:ph,password:pa};localStorage.setItem('earn2_user',JSON.stringify(user));document.getElementById('loginModal').style.display='none';check();}else alert("Wrong");}
-window.logout=function(){localStorage.removeItem('earn2_user');location.reload();}
-// AUTO PAY LOGIC - ONE TAP TO 0795143386
-window.triggerPay=function(){window.location.href="tel:*165*1*1*"+PAY+"*"+curPack.amount+"%23";}
-window.buyPack=function(l,a,d){curPack={level:l,amount:a,daily:d};document.getElementById('payL').innerText=l;document.getElementById('payA').innerText=a.toLocaleString();document.getElementById('payPh').value=user.phone;document.getElementById('payModal').style.display='flex';setTimeout(()=>{triggerPay();},400);}
-window.closePay=function(){document.getElementById('payModal').style.display='none';}
-window.confirmPay=function(){let tx=document.getElementById('payTx').value.trim(),ph=document.getElementById('payPh').value.trim();if(tx.length<6){alert("Enter valid TxID");return;}let reqs=JSON.parse(localStorage.getItem('earn2_requests')||'[]');reqs.push({phone:user.phone,name:user.name,level:curPack.level,amount:curPack.amount,daily:curPack.daily,tx:tx,momo:ph,status:"pending",date:new Date().toLocaleString(),id:Date.now()});localStorage.setItem('earn2_requests',JSON.stringify(reqs));alert("Submitted! CEO 0762950427 will approve");closePay();window.open("https://wa.me/256762950427?text=Ezol%20Earn2%20VIP"+curPack.level+"%20Tx%20"+tx,"_blank");}
-function renderPacks(){let box=document.getElementById('myPacks');let reqs=JSON.parse(localStorage.getItem('earn2_requests')||'[]').filter(x=>x.phone===user.phone);if(reqs.length===0){box.innerHTML='<p style="font-size:11px;color:#999">No package</p>';return;}box.innerHTML=reqs.map(r=>`<div class="card" style="margin:6px 0;border-left:4px solid ${r.status==='approved'?'#16a34a':'#f59e0b'}"><b>Pkg ${r.level} - ${r.amount.toLocaleString()} UGX</b> - ${r.status.toUpperCase()}<br><span style="font-size:11px">Tx ${r.tx}</span></div>`).join('');}
-window.doWithdraw=function(){if(bal<5000){alert("Min 5000 - have "+bal);return;}let all=JSON.parse(localStorage.getItem('earn2_withdraws')||'[]');if(all.find(x=>x.phone===user.phone&&x.status==='pending')){alert("Pending exists");return;}let num=prompt("MoMo number",user.phone);if(!num)return;let wd={phone:user.phone,momo:num,amount:bal,status:"pending",date:new Date().toLocaleString(),id:Date.now(),name:user.name};all.push(wd);localStorage.setItem('earn2_withdraws',JSON.stringify(all));alert("⏳ PENDING - "+bal+" UGX safe until CEO pays");sync();renderW();}
-function renderW(){let list=document.getElementById('wList');let all=JSON.parse(localStorage.getItem('earn2_withdraws')||'[]').filter(x=>x.phone===user.phone).reverse();if(all.length==0){list.innerHTML='<p style="font-size:11px;color:#999">No withdraws</p>';return;}list.innerHTML=all.map(w=>`<div class="card" style="margin:6px 0;border-left:4px solid ${w.status==='pending'?'#f59e0b':'#16a34a'}"><b>${w.amount.toLocaleString()} UGX</b> - ${w.status.toUpperCase()}<br><span style="font-size:11px">${w.momo} • ${w.date}</span></div>`).join('');}
-setInterval(()=>{let o=1240+Math.floor(Math.random()*30);document.getElementById('online').innerText=o.toLocaleString();},3000);
-window.openGroup=function(){window.open(GROUP,"_blank");}
-window.openCS=function(){window.open("https://wa.me/256762950427?text=Hello%20Ezol%20Earn2%20"+(user?.phone||""),"_blank");}
-window.openBiz=function(){document.getElementById('bizModal').style.display='flex';}
+function doRegister(){
+  let p = document.getElementById('phone').value;
+  let p1 = document.getElementById('pass1').value;
+  let p2 = document.getElementById('pass2').value;
+  if(!p || p.length < 9){ alert('Enter valid +256 phone'); return }
+  if(p1 !== p2){ alert('Passwords not match'); return }
+  localStorage.setItem('ezol_phone', p);
+  document.getElementById('authSection').style.display='none';
+  document.getElementById('paySection').style.display='block';
+  document.getElementById('userPhone').innerText = '+256'+p;
+}
+function autoPay(){
+  let amt = document.getElementById('amount').value;
+  let phone = '0795143386';
+  // MTN Uganda USSD format
+  let ussd = `*165*1*1*${phone}*${amt}#`;
+  document.getElementById('status').innerText = `Dialing MTN MoMo: ${ussd} - Confirm on your phone`;
+  // For mobile browsers, trigger tel:
+  window.location.href = `tel:${encodeURIComponent(ussd)}`;
+  // Also WhatsApp fallback
+  setTimeout(()=>{
+    window.open(`https://wa.me/256795143386?text=Hello%20I%20want%20to%20activate%20Ezol%20Earn2%20Amount%20${amt}%20UGX%20from%20+256${localStorage.getItem('ezol_phone')}`, '_blank');
+  }, 1500);
+}
+function copyNumber(){
+  navigator.clipboard.writeText('0795143386');
+  alert('Number 0795143386 copied');
+}
+function showLogin(){ alert('Login will check local storage - same phone & password'); }
 </script>
-</div>
 </body>
 </html>
